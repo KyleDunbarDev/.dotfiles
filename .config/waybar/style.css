@@ -1,115 +1,88 @@
-* {
-    border: none;
-    border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
-    font-size: 10px;
-    min-height: 10px;
-}
-
-@import "theme.css";
+@import "catppuccin.css";
 
 window#waybar {
-    background: @bar-bg;
+    background-color: transparent;
+}
+window > box {
+    background-color: @backgrounddark;
+    padding: 0px 5px;
+    margin: 0px 5px 2px 5px;
+    border-radius: 16px;
+}
+
+* {
+    font-family: SpaceMono Nerd Font;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 0;
+    border-radius: 10px;
 }
 
 tooltip {
-    background: @main-bg;
-    color: @main-fg;
-    border-radius: 7px;
-    border-width: 0px;
+    padding: 25px;
+    background-color: @backgrounddark;
+    color: @foreground;
+    font-family: SpaceMono Nerd Font;
+}
+
+tooltip label {
+    padding: 15px;
+    color: @textdark;
+}
+
+#workspaces {
+    border-radius: 100px;
+    margin: 6px 2px;
+    padding: 0px 10px;
 }
 
 #workspaces button {
-    box-shadow: none;
-    text-shadow: none;
-    padding: 0px;
-    border-radius: 9px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    margin-left: 0px;
-    padding-left: 3px;
-    padding-right: 3px;
-    margin-right: 0px;
-    color: @main-fg;
-    animation: ws_normal 20s ease-in-out 1;
+    color: @color11;
+    padding: 0px 5px;
 }
 
 #workspaces button.active {
-    background: @wb-act-bg;
-    color: @wb-act-fg;
-    margin-left: 3px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-right: 3px;
-    animation: ws_active 20s ease-in-out 1;
-    transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+    color: @color14;
+}
+
+#workspaces button.urgent {
+    color: @color5;
+}
+
+#workspaces button.empty {
+    color: @textlight;
 }
 
 #workspaces button:hover {
-    background: @wb-hvr-bg;
-    color: @wb-hvr-fg;
-    animation: ws_hover 20s ease-in-out 1;
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+    color: @color7;
+    background-color: @background;
 }
 
-#taskbar button {
-    box-shadow: none;
-    text-shadow: none;
-    padding: 0px;
-    border-radius: 9px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    margin-left: 0px;
-    padding-left: 3px;
-    padding-right: 3px;
-    margin-right: 0px;
-    color: @wb-color;
-    animation: tb_normal 20s ease-in-out 1;
-}
-
-#taskbar button.active {
-    background: @wb-act-bg;
-    color: @wb-act-color;
-    margin-left: 3px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-right: 3px;
-    animation: tb_active 20s ease-in-out 1;
-    transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-}
-
-#taskbar button:hover {
-    background: @wb-hvr-bg;
-    color: @wb-hvr-color;
-    animation: tb_hover 20s ease-in-out 1;
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-}
-
-#tray menu * {
-    min-height: 16px;
-}
-
-#tray menu separator {
-    min-height: 10px;
-}
-
-#backlight,
-#battery,
-#bluetooth,
-#custom-cliphist,
-#clock,
-#window,
-#workspaces {
-    color: @main-fg;
-    background: @main-bg;
-    opacity: 1;
-    margin: 4px 0px 4px 0px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-#workspaces,
 #tray {
-    padding: 0px;
+    margin: 6px 2px;
+    padding: 0px 10px;
+}
+
+#cpu,
+#memory,
+#disk,
+#mpris,
+#sys-settings,
+#pulseaudio,
+#custom-updates,
+#custom-exit,
+#custom-wallchange,
+#custom-cliphist,
+#clock {
+    background-color: @background;
+    color: @text;
+    border-radius: 100px;
+    padding: 0px 10px;
+    margin: 6px 2px;
+}
+
+#battery,
+#custom-updates,
+#backlight {
+    padding: 5px;
 }

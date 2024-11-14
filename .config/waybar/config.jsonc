@@ -6,11 +6,12 @@
   "exclusive": true,
   "passthrough": false,
   //"gtk-layer-shell": true,
-  //"reload_style_on_change": true,
+  "reload_style_on_change": true,
 
   "modules-left": [
     "custom/exit",
     "clock",
+    "custom/updates",
     "custom/cliphist",
     "custom/bitwarden",
     "custom/theme",
