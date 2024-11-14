@@ -12,10 +12,10 @@
     "custom/exit",
     "clock",
     "custom/updates",
-    "custom/cliphist",
-    "custom/bitwarden",
-    "custom/theme",
-    "custom/wallchange",
+    "custom/cliphist", //todo
+    "custom/bitwarden", //todo
+    "custom/theme", //todo
+    "custom/wallchange", //todo
     "tray",
     "hyprland/window",
   ],
@@ -23,31 +23,43 @@
   "modules-right": [
     "battery",
     "backlight",
-    "custom/cpumem",
+    "custom/cpumem", //tdod
+    "pulseaudio",
+    "custom/privacy", //todo
+    "custom/notifications", //todo
     "network",
-    "custom/pulseaudio",
-    "custom/privacy",
-    "custom/notifications",
   ],
 
-  "custom/pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+  "pulseaudio": {
+    "format": "<span color=\"#c6a0f6\">{icon}</span> {volume}%",
+    "format-bluetooth": "<span color=\"#c6a0f6\">󰂰 </span>{volume}%",
+    "format-muted": " ",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""],
+      "bluetooth": "󰥰 ",
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "phone-muted": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [" ", " "],
     },
+    "scroll-step": 1,
     "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"],
+  },
+
+  "network": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-disabled": "󰖪",
+    "format-disconnected": "<span color=\"#7aa2f7\">⚠ </span>",
+    "format-ethernet": "<span color=\"#7aa2f7\"> </span>",
+    "format-icons": ["<span color=\"#a6e3a1\"> </span>"],
+    "format-linked": "<span color=\"#a6e3a1\"> </span>",
+    "format-wifi": "{icon}",
+    "interval": 30,
   },
 
   "backlight": {
@@ -60,16 +72,24 @@
   },
 
   "battery": {
+    "bat": "BAT0",
+    "interval": 60,
     "states": {
-      "good": 95,
-      "warning": 30,
+      "warning": 40,
       "critical": 20,
     },
     "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-icons": {
+      "default": [
+        "<span color=\"#f7768e\"> </span>",
+        "<span color=\"#f7768e\"> </span>",
+        "<span color=\"#7aa2f7\"> </span>",
+        "<span color=\"#7aa2f7\"> </span>",
+        "<span color=\"#7aa2f7\"> </span>",
+      ],
+      "charging": [" "],
+    },
+    "format-charging": "<span color=\"#7aa2f7\">{icon}</span> {capacity}%",
   },
 
   //bitwarden
@@ -115,19 +135,8 @@
 
   "custom/exit": {
     "format": "",
-    "on-click": "wlogout",
+    "on-click": "wlogout -b 5",
     "tooltip": false,
-  },
-  "network": {
-    "tooltip": true,
-    "format-wifi": " ",
-    "format-ethernet": "󰈀 ",
-    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
-    "format-linked": "󰈀 {ifname} (No IP)",
-    "format-disconnected": "󰖪 ",
-    "tooltip-format-disconnected": "Disconnected",
-    "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
-    "interval": 2,
   },
 
   "custom/notifications": {
@@ -178,6 +187,7 @@
   //theme
 
   "tray": {
+    "icon-size": 16,
     "spacing": 5,
   },
 
